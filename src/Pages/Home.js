@@ -8,13 +8,14 @@ export default function Home() {
 
     if (!location.state) {
         return window.location.href = "/login"
-    } else {
-        const {_id, name, hkid} = location.state
-        return (
-            <div>
-                <h1>Your Name is {name}</h1>
-                <h1>Your HKID is retrived as follow: {hkid}</h1>
-            </div>
-        )
     }
+    
+    const {_id, name, hkid} = location.state
+    return (
+        <div>
+            <h1>Your Name is {name}</h1>
+            <h1>Your HKID is retrived as follow: {hkid}</h1>
+        </div>
+    )
+    
 }
