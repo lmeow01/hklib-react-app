@@ -8,6 +8,9 @@ export default function Home() {
     const [name, setName] = useState(Cookies.get("name"))
     const [hkid, setHkid] = useState(Cookies.get("hkid"))
 
+    console.log(_id)
+    console.log(name)
+    console.log(hkid)
     if (!_id) {
         window.location.href = "/login"
     } else {
