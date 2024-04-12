@@ -16,8 +16,8 @@ export default function Index() {
     })
     return (
         <>
-            {hkid.length == 0 && <Navigate to="/login" reaplce={true}/> }
-            {hkid.length != 0 && 
+            {cookies.name == 0 && <Navigate to="/login" reaplce={true}/> }
+            {cookies.name.length != 0 && 
                 <div className="flex">
                     <h1>Your Name is {name}</h1>
                     <h1>Your HKID is retrived as follow: {hkid}</h1>
