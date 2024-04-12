@@ -6,11 +6,9 @@ export default function Home() {
     const navigate = useNavigate();
     const location = useLocation();
 
-    if (!location.state) {
-        return window.location.href = "/login"
-    }
-    
     const {_id, name, hkid} = location.state
+
+    
     return (
         <div>
             <h1>Your Name is {name}</h1>
