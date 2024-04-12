@@ -10,8 +10,11 @@ export default function Index() {
     console.log(cookies)
     useEffect(() => {
         if (cookies.name && cookies.name.length != 0) {
-            setName(cookies.name)
-            setHkid(cookies.hkid)
+            setTimeout(() => {
+                setName(cookies.name)
+                setHkid(cookies.hkid)
+            }, 100)
+            
         }
     })
     return (
