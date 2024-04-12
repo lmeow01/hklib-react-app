@@ -19,6 +19,14 @@ export default function Home() {
         (name && hkid && <div>
             Welcome {name}
             Your HKID is retrieved: {hkid}
+            <button onClick={() => {
+                Cookies.delete("_id")
+                Cookies.delete("name")
+                Cookies.delete("hkid")
+                setId("")
+                setName("")
+                setHkid("")
+            }}>Logout</button>
         </div>  )
               
     )
