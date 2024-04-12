@@ -10,18 +10,18 @@ export default function Home() {
 
     if (!_id) {
         window.location.href = "/login"
-    } 
-    
-    return (
-        (name && hkid && <div>
-            Welcome {name}
-            Your HKID is retrieved: {hkid}
-            <Link to='/login' onClick={() => {
-                Cookies.delete("_id")
-                Cookies.delete("name")
-                Cookies.delete("hkid")
-            }}> Logout</Link>
-        </div>)
-              
-    )
+    } else {
+        return (
+            (name && hkid && <div>
+                Welcome {name}
+                Your HKID is retrieved: {hkid}
+                <Link to='/login' onClick={() => {
+                    Cookies.delete("_id")
+                    Cookies.delete("name")
+                    Cookies.delete("hkid")
+                }}> Logout</Link>
+            </div>)
+                  
+        )
+    }
 }
