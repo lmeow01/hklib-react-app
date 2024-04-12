@@ -4,10 +4,16 @@ import Cookies from "js-cookie"
 
 export default function Home() {
     const navigate = useNavigate();
-    const _id = Cookies.get("_id")
-    const name = Cookies.get("name")
-    const hkid = Cookies.get("hkid")
+    const [_id, setId] = useState(Cookies.get("_id"))
+    const [name, setName] = useState(Cookies.get("name"))
+    const [hkid, setHkid] = useState(Cookies.get("hkid"))
 
+    
+    useEffect(() => {
+        if (!_id) {
+            navigate("/login")
+        }
+    })
     
     return (
         (name && hkid && <div>
