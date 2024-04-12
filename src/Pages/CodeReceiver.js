@@ -49,7 +49,7 @@ export default function CodeReceiver() {
                 Cookies.set("_id", _id)
                 Cookies.set("name", name)
                 Cookies.set("hkid", hkid)
-                navigate("/home", { state: {
+                navigate("/", { state: {
                     _id,
                     name,
                     hkid
