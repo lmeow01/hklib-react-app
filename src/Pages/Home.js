@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {useNavigate, useLocation} from "react-router-dom"
+import {useNavigate, useLocation, Link} from "react-router-dom"
 import Cookies from "js-cookie"
 
 export default function Home() {
@@ -12,6 +12,8 @@ export default function Home() {
     useEffect(() => {
         if (!_id) {
             navigate("/login")
+        } else {
+
         }
     })
     
@@ -19,15 +21,11 @@ export default function Home() {
         (name && hkid && <div>
             Welcome {name}
             Your HKID is retrieved: {hkid}
-            <button onClick={() => {
+            <Link to='/login' onClick={() => {
                 Cookies.delete("_id")
                 Cookies.delete("name")
                 Cookies.delete("hkid")
-                setId("")
-                setName("")
-                setHkid("")
-                window.location.href("/login")
-            }}>Logout</button>
+            }}> Logout</Link>
         </div>  )
               
     )
