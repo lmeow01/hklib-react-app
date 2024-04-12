@@ -13,4 +13,5 @@ export default function Home() {
             navigate("/home")
         }
     })
+    return <></>
 }
