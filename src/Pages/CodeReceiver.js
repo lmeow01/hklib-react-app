@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import {useNavigate} from "react-router-dom"
+import Cookies from "js-cookie"
 
 export default function CodeReceiver() {
     const queryParameters = new URLSearchParams(window.location.search)
@@ -45,6 +46,9 @@ export default function CodeReceiver() {
                     alert(data)
                 }
 
+                Cookies.set("_id", _id)
+                Cookies.set("name", name)
+                Cookies.set("hkid", hkid)
                 navigate("/", { state: {
                     _id,
                     name,

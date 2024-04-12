@@ -1,25 +1,16 @@
 import React, { useEffect, useState } from "react";
 import {useNavigate, useLocation} from "react-router-dom"
+import Cookies from "js-cookie"
 
 export default function Home() {
     const navigate = useNavigate();
-    const location = useLocation();
-    const [name, setName] = useState("")
-    const [hkid, setHkid] = useState("")
-    const [_id, setId] = useState("")
- 
-    useEffect(() => {
-        if (!location.state){     
-            return navigate("/login")
-        }
+    const _id = Cookies.get("_id")
+    const name = Cookies.get("name")
+    const hkid = Cookies.get("hkid")
 
-        setName(location.state.name)
-        setHkid(location.state.hkid)
-        setId(location.state._id)
-    })
-
+    
     return (
-        (name.length != 0 && hkid.length != 0 && <div>
+        (name && hkid && <div>
             Welcome {name}
             Your HKID is retrieved: {hkid}
         </div>  )
