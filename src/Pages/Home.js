@@ -26,7 +26,7 @@ export default function Home() {
                 setId("")
                 setName("")
                 setHkid("")
-                navigate("/login")
+                window.location.href("/login")
             }}>Logout</button>
         </div>  )
               
