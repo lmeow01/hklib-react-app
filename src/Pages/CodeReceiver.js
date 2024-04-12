@@ -47,9 +47,9 @@ export default function CodeReceiver() {
                     alert(data)
                 }
 
-                setCookie('_id', _id)
-                setCookie('name', name)
-                setCookie('hkid', hkid)
+                setCookie('_id', _id, {path: '/'})
+                setCookie('name', name, {path: '/'})
+                setCookie('hkid', hkid, {path: '/'})
                 window.location.href = "/"
             });
         });
