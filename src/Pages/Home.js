@@ -4,29 +4,17 @@ import Cookies from "js-cookie"
 
 export default function Home() {
     const navigate = useNavigate();
-    const [_id, setId] = useState("")
-    const [name, setName] = useState("")
-    const [hkid, setHkid] = useState("")
-    setId(Cookies.get("_id"))
-    setName(Cookies.get("name"))
-    setHkid(Cookies.get("hkid"))
-    console.log(_id)
-    console.log(name)
-    console.log(hkid)
-    if (_id.length == 0) {
-        window.location.href = "/login"
+    const location = useLocation();
+
+    if (!location.state) {
+        return window.location.href = "/login"
     } else {
+        const {_id, name, hkid} = location.state
         return (
-            (name && hkid && <div>
-                Welcome {name}
-                Your HKID is retrieved: {hkid}
-                <Link to='/login' onClick={() => {
-                    Cookies.delete("_id")
-                    Cookies.delete("name")
-                    Cookies.delete("hkid")
-                }}> Logout</Link>
-            </div>)
-                  
+            <div>
+                <h1>Your Name is {name}</h1>
+                <h1>Your HKID is retrived as follow: {hkid}</h1>
+            </div>
         )
     }
 }
