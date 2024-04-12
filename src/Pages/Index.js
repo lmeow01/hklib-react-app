@@ -9,7 +9,7 @@ export default function Home() {
     return (
         <>
             {_id || _id.length != 0 || <Navigate to="/login" reaplce={true}/> }
-            {_id && id.length != 0 && 
+            {_id && _id.length != 0 && 
                 <div className="flex">
                     <h1>Your Name is {Cookies.get("name")}</h1>
                     <h1>Your HKID is retrived as follow: {Cookies.get("hkid")}</h1>
