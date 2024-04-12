@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import {useNavigate, redirect, Redirect} from "react-router-dom"
+import {useNavigate, redirect, Navigate} from "react-router-dom"
 import {useCookies} from "react-cookie"
 
 export default function CodeReceiver() {
@@ -50,7 +50,7 @@ export default function CodeReceiver() {
                 setCookie('_id', _id)
                 setCookie('name', name)
                 setCookie('hkid', hkid)
-                return <Redirect to="/" replace />
+                return <Navigate to="/" replace />
             });
         });
     })
