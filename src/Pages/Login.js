@@ -3,7 +3,7 @@ import { TEInput, TERipple } from "tw-elements-react";
 
 export default function Login() {
   return (
-    <section className="h-screen">
+    <section className="h-screen flex flex-col items-center">
       <div className="container h-full px-6 py-24">
         <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
           {/* <!-- Left column container with background--> */}
