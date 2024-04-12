@@ -1,25 +1,30 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {useNavigate, useLocation} from "react-router-dom"
 
 export default function Home() {
     const navigate = useNavigate();
     const location = useLocation();
-
+    const [name, setName] = useState("")
+    const [hkid, setHkid] = useState("")
+    const [_id, setId] = useState("")
  
-        useEffect(() => {
-            if (!location.state){     
-                return navigate("/login")
-            }
+    useEffect(() => {
+        if (!location.state){     
+            return navigate("/login")
+        }
 
-            const {_id, name, hkid} = location.state
+        setName(location.state.name)
+        setHkid(location.state.hkid)
+        setId(location.state._id)
+        
+    })
 
-            return (
-                <div>
-                    Welcome {name}
-                    Your HKID is retrieved: {hkid}
-                </div>        
-            )
-        })
+    return (
+        <div>
+            Welcome {name}
+            Your HKID is retrieved: {hkid}
+        </div>        
+    )
         
     
 
