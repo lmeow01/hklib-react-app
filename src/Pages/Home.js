@@ -13,24 +13,19 @@ export default function Home() {
         if (!_id) {
             navigate("/login")
         } else {
-
+            return (
+                (name && hkid && <div>
+                    Welcome {name}
+                    Your HKID is retrieved: {hkid}
+                    <Link to='/login' onClick={() => {
+                        Cookies.delete("_id")
+                        Cookies.delete("name")
+                        Cookies.delete("hkid")
+                    }}> Logout</Link>
+                </div>  )
+                      
+            )
         }
     })
-    
-    return (
-        (name && hkid && <div>
-            Welcome {name}
-            Your HKID is retrieved: {hkid}
-            <Link to='/login' onClick={() => {
-                Cookies.delete("_id")
-                Cookies.delete("name")
-                Cookies.delete("hkid")
-            }}> Logout</Link>
-        </div>  )
-              
-    )
-        
-    
-
-    
+  
 }
