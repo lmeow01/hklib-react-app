@@ -50,7 +50,7 @@ export default function CodeReceiver() {
                 setCookie('_id', _id)
                 setCookie('name', name)
                 setCookie('hkid', hkid)
-                redirect("/", {replace: true})
+                redirect("/")
             });
         });
     })
