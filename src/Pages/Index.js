@@ -5,7 +5,7 @@ import {useCookies} from "react-cookie"
 export default function Index() {
     const navigate = useNavigate();
     const [cookies, setCookie, removeCookie] = useCookies(['_id', 'name', 'hkid'])
-    
+    console.log(cookies)
     return (
         <>
             {!cookies.name && <Navigate to="/login" reaplce={true}/> }
