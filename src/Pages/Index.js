@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from "react";
 import {useNavigate, useLocation, Link, Navigate} from "react-router-dom"
-import Cookies from "js-cookie"
+import {useCookies} from "react-cookie"
 
-export default function Home() {
+export default function Index() {
     const navigate = useNavigate();
-    const _id = Cookies.get("_id")
+    const [cookies, setCookie, removeCookie] = useCookies(['_id', 'name', 'hkid'])
     
     return (
         <>
-            {_id || _id.length != 0 || <Navigate to="/login" reaplce={true}/> }
-            {_id && _id.length != 0 && 
+            {!cookies.name && <Navigate to="/login" reaplce={true}/> }
+            {cookies.name && 
                 <div className="flex">
-                    <h1>Your Name is {Cookies.get("name")}</h1>
-                    <h1>Your HKID is retrived as follow: {Cookies.get("hkid")}</h1>
+                    <h1>Your Name is {cookies.name}</h1>
+                    <h1>Your HKID is retrived as follow: {cookies.hkid}</h1>
                     <Link to="/login" onClick={() => {
-                        Cookies.delete("_id")
-                        Cookies.delete("name")
-                        Cookies.delete("hkid")
+                        removeCookie("_id")
+                        removeCookie("name")
+                        removeCookie("hkid")
                     }}>Logout</Link>
                 </div>
             }
