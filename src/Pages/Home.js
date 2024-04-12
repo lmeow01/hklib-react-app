@@ -4,14 +4,16 @@ import Cookies from "js-cookie"
 
 export default function Home() {
     const navigate = useNavigate();
-    const [_id, setId] = useState(Cookies.get("_id"))
-    const [name, setName] = useState(Cookies.get("name"))
-    const [hkid, setHkid] = useState(Cookies.get("hkid"))
-
+    const [_id, setId] = useState("")
+    const [name, setName] = useState("")
+    const [hkid, setHkid] = useState("")
+    setId(Cookies.get("_id"))
+    setName(Cookies.get("name"))
+    setHkid(Cookies.get("hkid"))
     console.log(_id)
     console.log(name)
     console.log(hkid)
-    if (!_id) {
+    if (_id.length == 0) {
         window.location.href = "/login"
     } else {
         return (
