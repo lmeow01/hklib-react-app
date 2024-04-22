@@ -20,7 +20,7 @@ export default function Index() {
             {!cookies.name && <Navigate to="/login" reaplce={true}/> }
             <div className="flex space-x-96 px-6 py-2 text-xl">
                 <h1>Your Name is {name}</h1>
-                <h1>Your HKID is retrived as follow: <span className="font-bold">{hkid}</span></h1>
+                <h1>Your HKID is retrieved as follow: <span className="font-bold">{hkid}</span></h1>
                 <Link className="bg-blue-600 text-white rounded-md px-2 py-1" to="/login" onClick={() => {
                     removeCookie("_id")
                     removeCookie("name")
@@ -32,7 +32,7 @@ export default function Index() {
                     <tr className="border-solid border-2 border-sky-500 p-2">
                         <th className="border-solid border-2 border-sky-500 p-2">Book </th>
                         <th className="border-solid border-2 border-sky-500 p-2">Author </th>
-                        <th className="border-solid border-2 border-sky-500 p-2">Publised Date</th>
+                        <th className="border-solid border-2 border-sky-500 p-2">Publication Date</th>
                     </tr>
                     {
                         list.map((book) => {
@@ -40,7 +40,7 @@ export default function Index() {
                                 <tr className="border-solid border-2 border-sky-500 p-2">
                                     <td className="border-solid border-2 border-sky-500 p-2">Book {book}</td>
                                     <td className="border-solid border-2 border-sky-500 p-2">Author {book}</td>
-                                    <td className="border-solid border-2 border-sky-500 p-2">Publised Date {book}</td>
+                                    <td className="border-solid border-2 border-sky-500 p-2">Publication Date {book}</td>
                                 </tr>
                             )
                         })
