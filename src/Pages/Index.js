@@ -28,7 +28,7 @@ export default function Index() {
                 }}>Logout</Link>
             </div>
             <div className="flex space-x-96 px-6 py-2 text-xl">
-                <table>
+                <table className="border-solid border-2 border-sky-500 w-full ">
                     {
                         list.map((book) => {
                             return (
