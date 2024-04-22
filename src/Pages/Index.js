@@ -29,7 +29,7 @@ export default function Index() {
             </div>
             <div className="flex space-x-96 px-6 py-2 text-l">
                 <table className="border-solid border-2 border-sky-500 w-full ">
-                    <tr className="flex space-x-96 px-6 py-2 text-l">
+                    <tr className="border-solid border-2 border-sky-500 p-2">
                         <th className="border-solid border-2 border-sky-500 p-2">Book </th>
                         <th className="border-solid border-2 border-sky-500 p-2">Author </th>
                         <th className="border-solid border-2 border-sky-500 p-2">Publised Date</th>
