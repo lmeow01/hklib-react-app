@@ -30,9 +30,9 @@ export default function Index() {
             <div className="flex space-x-96 px-6 py-2 text-l">
                 <table className="border-solid border-2 border-sky-500 w-full ">
                     <tr className="flex space-x-96 px-6 py-2 text-l">
-                    <th className="border-solid border-2 border-sky-500 p-2">Book </th>
-                                    <th className="border-solid border-2 border-sky-500 p-2">Author </th>
-                                    <th className="border-solid border-2 border-sky-500 p-2">Publised Date</th>
+                        <th className="border-solid border-2 border-sky-500 p-2">Book </th>
+                        <th className="border-solid border-2 border-sky-500 p-2">Author </th>
+                        <th className="border-solid border-2 border-sky-500 p-2">Publised Date</th>
                     </tr>
                     {
                         list.map((book) => {
