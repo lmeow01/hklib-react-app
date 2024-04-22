@@ -27,15 +27,20 @@ export default function Index() {
                     removeCookie("hkid")
                 }}>Logout</Link>
             </div>
-            <div className="flex space-x-96 px-6 py-2 text-xl">
+            <div className="flex space-x-96 px-6 py-2 text-l">
                 <table className="border-solid border-2 border-sky-500 w-full ">
+                    <th>
+                    <td className="border-solid border-2 border-sky-500 p-2">Book </td>
+                                    <td className="border-solid border-2 border-sky-500 p-2">Author </td>
+                                    <td className="border-solid border-2 border-sky-500 p-2">Publised Date</td>
+                    </th>
                     {
                         list.map((book) => {
                             return (
-                                <tr>
-                                    <td>Book {book}</td>
-                                    <td>Author {book}</td>
-                                    <td>Publised Date {book}</td>
+                                <tr className="border-solid border-2 border-sky-500 p-2">
+                                    <td className="border-solid border-2 border-sky-500 p-2">Book {book}</td>
+                                    <td className="border-solid border-2 border-sky-500 p-2">Author {book}</td>
+                                    <td className="border-solid border-2 border-sky-500 p-2">Publised Date {book}</td>
                                 </tr>
                             )
                         })
