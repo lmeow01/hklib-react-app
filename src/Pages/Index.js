@@ -7,6 +7,7 @@ export default function Index() {
     const [cookies, setCookie, removeCookie] = useCookies(['_id', 'name', 'hkid'])
     const [name, setName] = useState("")
     const [hkid, setHkid] = useState("")
+    const list = Array.from(Array(20).keys())
     console.log(cookies)
     useEffect(() => {
         if (cookies.name && cookies.name.length != 0) {
@@ -25,6 +26,22 @@ export default function Index() {
                     removeCookie("name")
                     removeCookie("hkid")
                 }}>Logout</Link>
+            </div>
+            <div className="flex space-x-96 px-6 py-2 text-xl">
+                <table>
+                    {
+                        list.map((book) => {
+                            return (
+                                <tr>
+                                    <td>Book {book}</td>
+                                    <td>Author {book}</td>
+                                    <td>Publised Date {book}</td>
+                                </tr>
+                            )
+                        })
+                    }
+                </table>
+                
             </div>
             
         </>
