@@ -17,7 +17,7 @@ export default function Index() {
     return (
         <>
             {!cookies.name && <Navigate to="/login" reaplce={true}/> }
-            <div className="flex space-x-96 px-6 text-l">
+            <div className="flex space-x-96 px-6 text-xl">
                 <h1>Your Name is {name}</h1>
                 <h1>Your HKID is retrived as follow: <span className="font-bold">{hkid}</span></h1>
                 <Link className="bg-blue-600 text-white rounded-md px-2 py-1" to="/login" onClick={() => {
