@@ -1,5 +1,7 @@
 import React from "react";
 import { TEInput, TERipple } from "tw-elements-react";
+import {encode as base64_encode} from 'base-64'
+import { getSHA256Hash } from "boring-webcrypto-sha256";
 
 export default function Login() {
   return (
@@ -104,9 +106,12 @@ export default function Login() {
                   Continue with Facebook
                 </a>
               </TERipple>
-              <TERipple rippleColor="light" className="w-full" onClick={(e) => {
+              <TERipple rippleColor="light" className="w-full" onClick={async (e) => {
                   e.preventDefault()
-                  window.open("https://hkid-frontend.vercel.app/oauth/login?projectID=hklib.myapp.in&redirectURL=https://hklib.vercel.app/oauth/code_receiver&scope=default", "_parent")
+                  // const codeVerifier = randomstring();
+                  const codeVerifier = base64_encode("1");
+                  const codeChallenge = await getSHA256Hash(codeVerifier)
+                  window.open("https://hkid-frontend.vercel.app/oauth/login?projectID=hklib.myapp.in&redirectURL=https://hklib.vercel.app/oauth/code_receiver&scope=default&code_challenge=" + codeChallenge + "&code_challenge_method=S256", "_parent")
                 }}>
                 <a
                   className="mb-3 flex w-full items-center justify-center rounded bg-info px-7 pb-2.5 pt-3 text-center text-sm font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#54b4d3] transition duration-150 ease-in-out hover:bg-info-600 hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:bg-info-600 focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:outline-none focus:ring-0 active:bg-info-700 active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(84,180,211,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)]"
