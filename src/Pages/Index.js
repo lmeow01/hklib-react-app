@@ -4,7 +4,7 @@ import {useCookies} from "react-cookie"
 
 export default function Index() {
     const navigate = useNavigate();
-    const [cookies, setCookie, removeCookie] = useCookies(['_id', 'name', 'hkid'])
+    const [cookies, setCookie, removeCookie] = useCookies(['_id', 'name', 'hkid', 'codeVerifier'])
     const [name, setName] = useState("")
     const [hkid, setHkid] = useState("")
     const list = Array.from(Array(20).keys())
@@ -25,6 +25,7 @@ export default function Index() {
                     removeCookie("_id")
                     removeCookie("name")
                     removeCookie("hkid")
+                    removeCookie("codeVerifier")
                 }}>Logout</Link>
             </div>
             <div className="flex space-x-96 px-6 py-2 text-l">

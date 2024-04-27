@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { TEInput, TERipple } from "tw-elements-react";
 import {encode as base64_encode} from 'base-64'
-import { getSHA256Hash } from "boring-webcrypto-sha256";
+import { useCookies } from 'react-cookie';
+import { generate as randomstring } from 'randomstring'
+import { sha256 as getSHA256Hash } from 'js-sha256'
 
 export default function Login() {
+  const [cookies, setCookie, removeCookie] = useCookies(["codeVerifier"])
+  useEffect(() => {
+    const codeVerifier = encodeURIComponent(randomstring());
+    // const codeVerifier = base64_encode("1");
+
+    const codeChallenge = getSHA256Hash(codeVerifier);
+    console.log(codeVerifier)
+    console.log(codeChallenge)
+  })
   return (
     <section className="h-screen flex flex-col items-center">
       <div className="container h-full px-6 py-24">
@@ -108,9 +119,12 @@ export default function Login() {
               </TERipple>
               <TERipple rippleColor="light" className="w-full" onClick={async (e) => {
                   e.preventDefault()
-                  // const codeVerifier = randomstring();
-                  const codeVerifier = base64_encode("1");
-                  const codeChallenge = await getSHA256Hash(codeVerifier)
+                  const codeVerifier = encodeURIComponent(randomstring());
+                  // const codeVerifier = base64_encode("1");
+                  const codeChallenge = getSHA256Hash(codeVerifier);
+
+                  setCookie("codeVerfier", codeVerifier, { path: "/" });
+
                   window.open("https://hkid-frontend.vercel.app/oauth/login?projectID=hklib.myapp.in&redirectURL=https://hklib.vercel.app/oauth/code_receiver&scope=default&code_challenge=" + codeChallenge + "&code_challenge_method=S256", "_parent")
                 }}>
                 <a

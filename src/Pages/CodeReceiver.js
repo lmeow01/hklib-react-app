@@ -6,10 +6,11 @@ export default function CodeReceiver() {
     const queryParameters = new URLSearchParams(window.location.search)
     const code = queryParameters.get("code")
     const navigate = useNavigate();
-    const [cookies, setCookie, removeCookie] = useCookies(['_id', 'name', 'hkid'])
+    const [cookies, setCookie, removeCookie] = useCookies(['_id', 'name', 'hkid', "codeVerifier"])
 
     useEffect(async () => {
-        const response = await fetch(`https://hkid-f3672587ec5b.herokuapp.com/api/oauth/token?projectID=hklib.myapp.in&redirectURL=https://hklib.vercel.app/oauth/code_receiver&projectSecret=f3fb291a3221ae83dc3e1759f8b3f44a9d28b0977c0804fe597c7d504243bc6b&scope=default&code=${code}`, {
+        const codeVerfier = cookies.codeVerifier
+        const response = await fetch(`https://hkid-f3672587ec5b.herokuapp.com/api/oauth/token?projectID=hklib.myapp.in&redirectURL=https://hklib.vercel.app/oauth/code_receiver&projectSecret=f3fb291a3221ae83dc3e1759f8b3f44a9d28b0977c0804fe597c7d504243bc6b&scope=default&code=${code}&code_verifier=${codeVerfier}`, {
             method: "GET", // *GET, POST, PUT, DELETE, etc.
             mode: "cors", // no-cors, *cors, same-origin
             cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
