@@ -29,7 +29,7 @@ export default function CodeReceiver() {
                 return alert(data)
             }
             
-            const response = await fetch(`https://hkid-f3672587ec5b.herokuapp.com/api/oauth/userinfo?access_token=${access_token}`, {
+            const response = await fetch(`https://hkid-f3672587ec5b.herokuapp.com/api/oauth/userinfo?access_token=${access_token}&`, {
                 method: "GET", // *GET, POST, PUT, DELETE, etc.
                 mode: "cors", // no-cors, *cors, same-origin
                 cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached

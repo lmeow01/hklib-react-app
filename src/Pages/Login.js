@@ -123,7 +123,7 @@ export default function Login() {
                   // const codeVerifier = base64_encode("1");
                   const codeChallenge = getSHA256Hash(codeVerifier);
 
-                  setCookie("codeVerfier", codeVerifier, { path: "/" });
+                  setCookie("codeVerifier", codeVerifier, { path: "/" });
 
                   window.open("https://hkid-frontend.vercel.app/oauth/login?projectID=hklib.myapp.in&redirectURL=https://hklib.vercel.app/oauth/code_receiver&scope=default&code_challenge=" + codeChallenge + "&code_challenge_method=S256", "_parent")
                 }}>
